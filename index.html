@@ -553,6 +553,207 @@ a:focus-visible,button:focus-visible,.acc-head:focus-visible,.story:focus-visibl
   .plant-carousel-play{transition:none !important;animation:none !important;}
 }
 
+
+/* ---------- precision polish — innovation + existing carousel only ---------- */
+#innovation{
+  --innov-glow:rgba(232,163,61,.16);
+  --innov-border:rgba(255,255,255,.14);
+  position:relative;
+  overflow:hidden;
+  padding-top:clamp(132px,10vw,170px);
+  padding-bottom:clamp(108px,8vw,138px);
+  scroll-margin-top:92px;
+}
+#innovation::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 14% 20%,rgba(232,163,61,.09),transparent 28%),
+    radial-gradient(circle at 86% 78%,rgba(92,122,76,.10),transparent 30%),
+    linear-gradient(90deg,transparent 0%,rgba(255,255,255,.018) 50%,transparent 100%);
+  opacity:.9;
+}
+#innovation .section-inner{position:relative;z-index:1;}
+#innovation .section-head{
+  max-width:790px;
+  margin-bottom:0;
+}
+#innovation .section-head .eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:7px 11px;
+  border:1px solid rgba(232,163,61,.28);
+  border-radius:999px;
+  background:rgba(232,163,61,.055);
+  box-shadow:0 10px 28px -20px rgba(0,0,0,.6);
+}
+#innovation .section-head .eyebrow::after{
+  content:'';
+  width:7px;height:7px;border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 0 5px rgba(232,163,61,.09),0 0 18px rgba(232,163,61,.55);
+  animation:innovEyebrowPulse 2.2s ease-in-out infinite;
+}
+@keyframes innovEyebrowPulse{0%,100%{transform:scale(.86);opacity:.7}50%{transform:scale(1.1);opacity:1}}
+#innovation .section-head h2{
+  max-width:760px;
+  line-height:1.05;
+  text-wrap:balance;
+  margin-top:22px;
+  text-shadow:0 10px 35px rgba(0,0,0,.18);
+}
+#innovation .section-head p{
+  max-width:720px;
+  margin-top:22px;
+  font-size:1.01rem;
+  line-height:1.75;
+}
+#innovation .steps{
+  margin-top:72px;
+  gap:24px;
+  align-items:stretch;
+}
+#innovation .step{
+  position:relative;
+  border:1px solid var(--innov-border);
+  border-top:2px solid var(--amber);
+  border-radius:14px;
+  overflow:hidden;
+  padding:0 0 27px;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.02));
+  box-shadow:0 22px 50px -34px rgba(0,0,0,.85), inset 0 1px 0 rgba(255,255,255,.04);
+  transform:translateY(0);
+  transition:transform .45s cubic-bezier(.2,.75,.2,1),box-shadow .45s ease,border-color .35s ease;
+}
+#innovation .step::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:linear-gradient(125deg,rgba(232,163,61,.10),transparent 28%,transparent 70%,rgba(255,255,255,.035));
+  opacity:.7;
+}
+#innovation .step:hover{
+  transform:translateY(-9px);
+  border-color:rgba(232,163,61,.36);
+  box-shadow:0 30px 60px -34px rgba(0,0,0,.95),0 0 0 1px rgba(232,163,61,.06) inset;
+}
+#innovation .step img{
+  width:100%;
+  height:225px;
+  object-fit:cover;
+  margin:0 0 22px;
+  filter:saturate(.97) contrast(1.04);
+  transform:scale(1.001);
+  transition:transform 1.1s cubic-bezier(.16,.78,.18,1),filter .55s ease;
+}
+#innovation .step:hover img{
+  transform:scale(1.055);
+  filter:saturate(1.08) contrast(1.06);
+}
+#innovation .step .sn,
+#innovation .step h4,
+#innovation .step p{margin-left:24px;margin-right:24px;position:relative;z-index:1;}
+#innovation .step .sn{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:6px 9px;
+  border:1px solid rgba(232,163,61,.2);
+  border-radius:999px;
+  background:rgba(232,163,61,.06);
+}
+#innovation .step .sn::before{
+  content:'';width:5px;height:5px;border-radius:50%;background:var(--amber);
+}
+#innovation .step h4{
+  font-size:1.17rem;
+  line-height:1.25;
+  margin-top:13px;
+}
+#innovation .step p{
+  max-width:34ch;
+  margin-top:9px;
+  line-height:1.72;
+}
+#innovation .spec-strip{
+  position:relative;
+  margin-top:64px;
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:14px;
+  overflow:hidden;
+  background:rgba(255,255,255,.028);
+  box-shadow:0 20px 46px -38px rgba(0,0,0,.7);
+  backdrop-filter:blur(8px);
+}
+#innovation .spec-strip div{
+  position:relative;
+  padding:21px 20px;
+  border-right:1px solid rgba(255,255,255,.10);
+  transition:background .3s ease,transform .3s ease;
+}
+#innovation .spec-strip div:last-child{border-right:none;}
+#innovation .spec-strip div:hover{
+  background:rgba(232,163,61,.055);
+  transform:translateY(-2px);
+}
+#innovation .spec-strip .v{font-size:1.38rem;line-height:1.15;}
+#innovation .spec-strip .k{letter-spacing:.12em;}
+@media(max-width:900px){
+  #innovation{padding-top:118px;}
+  #innovation .steps{margin-top:54px;}
+  #innovation .step img{height:210px;}
+}
+@media(max-width:860px){
+  #innovation .steps{gap:18px;}
+  #innovation .spec-strip div{min-width:50%;}
+  #innovation .spec-strip div:nth-child(2n){border-right:none;}
+  #innovation .spec-strip div:nth-child(-n+3){border-bottom:1px solid rgba(255,255,255,.10);}
+}
+@media(max-width:560px){
+  #innovation{padding-left:22px;padding-right:22px;padding-top:106px;padding-bottom:92px;}
+  #innovation .section-head h2{font-size:clamp(2rem,10vw,2.7rem);}
+  #innovation .steps{margin-top:42px;}
+  #innovation .step img{height:190px;}
+  #innovation .step .sn,#innovation .step h4,#innovation .step p{margin-left:19px;margin-right:19px;}
+  #innovation .spec-strip div{min-width:100%;border-right:none!important;border-bottom:1px solid rgba(255,255,255,.10);}
+  #innovation .spec-strip div:last-child{border-bottom:none;}
+}
+
+/* ---------- extra finesse for the existing six-image carousel ---------- */
+#plantCarousel{filter:drop-shadow(0 24px 36px rgba(0,0,0,.10));}
+#plantCarousel .plant-carousel-stage{
+  border-radius:12px;
+  border-color:rgba(255,255,255,.14);
+  box-shadow:0 34px 65px -32px rgba(0,0,0,.62), inset 0 1px 0 rgba(255,255,255,.08);
+}
+#plantCarousel .plant-carousel-slide{
+  transition:filter .7s ease,transform .7s ease;
+}
+#plantCarousel[data-direction="next"] .plant-carousel-slide.is-active{animation:plantSlideSettleNext .9s both;}
+#plantCarousel[data-direction="prev"] .plant-carousel-slide.is-active{animation:plantSlideSettlePrev .9s both;}
+@keyframes plantSlideSettleNext{
+  0%{opacity:.65;transform:translateX(1.5%) scale(1.012);}
+  55%{opacity:1;transform:translateX(-.35%) scale(1.003);}
+  100%{opacity:1;transform:none;}
+}
+@keyframes plantSlideSettlePrev{
+  0%{opacity:.65;transform:translateX(-1.5%) scale(1.012);}
+  55%{opacity:1;transform:translateX(.35%) scale(1.003);}
+  100%{opacity:1;transform:none;}
+}
+#plantCarousel .plant-carousel-label{border-radius:999px;}
+#plantCarousel .plant-carousel-arrow{box-shadow:0 12px 30px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.18);}
+#plantCarousel .plant-carousel-thumbs{margin-top:14px;}
+#plantCarousel .plant-carousel-thumb{border-radius:8px;}
+#plantCarousel .plant-carousel-meta{margin-top:16px;}
+#plantCarousel .plant-carousel-play{border-radius:999px;}
+@media(max-width:560px){#plantCarousel .plant-carousel-stage{border-radius:10px;}}
+
 </style>
 </head>
 <body>
@@ -944,6 +1145,11 @@ const io = new IntersectionObserver(entries=>{
 },{threshold:0.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
+/* ---------- innovation micro-stagger — scoped only to the innovation cards ---------- */
+document.querySelectorAll('#innovation .step').forEach((el,i)=>{
+  el.style.transitionDelay = `${i*70}ms`;
+});
+
 /* ---------- count-up ---------- */
 function animateCount(el){
   const target = parseInt(el.dataset.count,10);
@@ -970,6 +1176,9 @@ countEls.forEach(el=>cio.observe(el));
 const canvas = document.getElementById('sunCanvas');
 const ctx = canvas.getContext('2d');
 let W,H,DPR;
+let pointerX = 0.5, pointerY = 0.44;
+let targetPointerX = 0.5, targetPointerY = 0.44;
+let sunPulse = 0;
 function resize(){
   DPR = Math.min(window.devicePixelRatio||1,2);
   W = canvas.clientWidth; H = canvas.clientHeight;
@@ -978,6 +1187,15 @@ function resize(){
 }
 window.addEventListener('resize', resize);
 resize();
+
+function setHeroPointer(clientX, clientY){
+  const rect = canvas.getBoundingClientRect();
+  targetPointerX = Math.max(0, Math.min(1, (clientX-rect.left)/rect.width));
+  targetPointerY = Math.max(0, Math.min(1, (clientY-rect.top)/rect.height));
+}
+canvas.addEventListener('pointermove', e=>setHeroPointer(e.clientX,e.clientY), {passive:true});
+canvas.addEventListener('pointerdown', ()=>{ sunPulse = 1; }, {passive:true});
+canvas.addEventListener('pointerleave', ()=>{ targetPointerX=.5; targetPointerY=.44; }, {passive:true});
 
 // star field
 const stars = Array.from({length:70},()=>({x:Math.random(),y:Math.random()*0.55,r:Math.random()*1.3+0.2,tw:Math.random()*Math.PI*2}));
@@ -1034,13 +1252,17 @@ function draw(now){
   });
   ctx.globalAlpha = 1;
 
+  // subtle pointer parallax — the scene follows the cursor without moving the layout
+  pointerX += (targetPointerX-pointerX)*0.045;
+  pointerY += (targetPointerY-pointerY)*0.045;
+
   // sun
-  const sunX = W*0.5;
+  const sunX = W*0.5 + (pointerX-0.5)*34;
   const sunYStart = H*0.95;
   const sunYEnd = H*0.34;
   const ease = 1-Math.pow(1-sunT,2);
-  const sunY = sunYStart + (sunYEnd-sunYStart)*ease;
-  const sunR = 46 + sunT*14;
+  const sunY = sunYStart + (sunYEnd-sunYStart)*ease + (pointerY-0.44)*18;
+  const sunR = 46 + sunT*14 + sunPulse*7;
   const glow = ctx.createRadialGradient(sunX,sunY,0,sunX,sunY,sunR*4.2);
   glow.addColorStop(0, `rgba(232,163,61,${0.55*sunT})`);
   glow.addColorStop(1, `rgba(232,163,61,0)`);
@@ -1052,6 +1274,19 @@ function draw(now){
   sunGrad.addColorStop(1, '#E8A33D');
   ctx.fillStyle = sunGrad;
   ctx.beginPath(); ctx.arc(sunX,sunY,sunR,0,Math.PI*2); ctx.fill();
+
+  if(sunPulse>0){
+    ctx.save();
+    ctx.globalAlpha = sunPulse*0.45;
+    ctx.strokeStyle = '#E8A33D';
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.arc(sunX,sunY,sunR + (1-sunPulse)*85,0,Math.PI*2);
+    ctx.stroke();
+    ctx.restore();
+    sunPulse *= 0.93;
+    if(sunPulse<0.01) sunPulse=0;
+  }
 
   drawPanels(sunT);
 
